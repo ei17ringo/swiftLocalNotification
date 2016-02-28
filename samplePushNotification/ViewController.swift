@@ -20,6 +20,28 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func tapBtn(sender: UIButton) {
+        print("押されました")
+        
+        // ローカル通知の設定
+        let notification : UILocalNotification = UILocalNotification()
+        
+        // タイトル
+        notification.alertTitle = "Fire"
+        
+        // 通知メッセージ
+        notification.alertBody = "ファイヤー！！！"
+        
+        // Timezoneの設定
+        notification.timeZone = NSTimeZone.defaultTimeZone()
+        
+        // 10秒後に通知を設定
+        notification.fireDate = NSDate(timeIntervalSinceNow: 10)
+        
+        // Notificationを表示する
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        
+    }
 
 }
 
